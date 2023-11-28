@@ -1,11 +1,77 @@
-git <!DOCTYPE html>
+<!-- poster="https://assets.codepen.io/6093409/river.jpg" -->
+<!DOCTYPE html>
 <html>
   <head>
     <title>Page Title</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
   </head>
   <body>
-    <h1>Hello World</h1>
-    <script src="main.js"></script>
+    <div class="container">
+      <div class="wrapper">
+        <video id="background-video" autoplay loop muted playsInlne>
+          <source
+            src="./assets/-7e25-4a04-b481-25a1b4fa7cf0.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <!-- <div
+          style="position: absolute; top: 0; bottom: 0; left: 0; right: 0"
+        ></div> -->
+        <div id="ad-container">
+          <div id="ad-info">
+            <div class="ad-info-header">
+              <img src="assets/img/icon.svg" alt="business icon" />
+              <h1>MTN Nigeria</h1>
+            </div>
+            <p>
+              🌐 Stay Connected, No Strings Attached! With AdNet Zone, enjoy
+              free It's that easy! #FreeWiFi
+            </p>
+            <a href="#" id="ad-link">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M9 18L15 12L9 6"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+              ></span>
+              <span> Get started </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M9 18L15 12L9 6"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg></span
+            ></a>
+          </div>
+          <div id="progress">
+            <div id="progress-bar"></div>
+            <div id="progress-circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
+
+<!-- loop
+muted -->
