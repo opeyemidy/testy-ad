@@ -1,0 +1,19 @@
+@import 'scss/variables';
+@import 'scss/mixins';
+@import 'scss/reset';
+@import 'scss/media-queries';
+body {
+  font-size: 16px;
+}
+.container {
+  @include flex-container;
+  @include small-devices {
+    background-color: $primary-color;
+  }
+  @include medium-devices {
+    background-color: $secondary-color;
+  }
+  @include large-devices {
+    background-color: $success-color;
+  }
+}
