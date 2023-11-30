@@ -4,8 +4,279 @@
   <head>
     <title>Page Title</title>
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/fonts/Inter/fonts.css"
+    />
+    <meta name="viewport" content="width=device-width" />
   </head>
   <body>
+    <!-- <button id="showModal" style="position: absolute; z-index: 5">
+      Show Modal
+    </button> -->
+    <div
+      id="preloader"
+      style="
+        z-index: 3;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #000;
+      "
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        style="margin: auto; display: block"
+        width="200px"
+        height="200px"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid"
+      >
+        <g transform="rotate(0 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.9166666666666666s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(30 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.8333333333333334s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(60 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.75s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(90 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.6666666666666666s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(120 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.5833333333333334s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(150 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.5s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(180 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.4166666666666667s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(210 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.3333333333333333s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(240 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.25s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(270 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.16666666666666666s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(300 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="-0.08333333333333333s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+        <g transform="rotate(330 50 50)">
+          <rect
+            x="47"
+            y="24"
+            rx="3"
+            ry="6"
+            width="6"
+            height="12"
+            fill="#ffffff"
+          >
+            <animate
+              attributeName="opacity"
+              values="1;0"
+              keyTimes="0;1"
+              dur="1s"
+              begin="0s"
+              repeatCount="indefinite"
+            ></animate>
+          </rect>
+        </g>
+      </svg>
+    </div>
     <div class="container">
       <div class="wrapper">
         <video id="background-video" autoplay loop muted playsInlne>
@@ -28,7 +299,7 @@
               free It's that easy! #FreeWiFi
             </p>
             <a href="#" id="ad-link">
-              <span>
+              <span style="visibility: hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -69,6 +340,127 @@
         </div>
       </div>
     </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="overlay-dark" id="overlay-dark"></div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="intro-container" id="intro-container">
+          <h2 class="intro-title">
+            Welcome to <br />Fundamentals <br />Internet
+          </h2>
+          <p class="intro-description">
+            Experience seamless internet connectivity in public spaces without
+            any cost. With AdNet Zone, free Wi-Fi access is just an ad away.
+          </p>
+          <div class="terms-conditions-link">
+            <input type="checkbox" id="toggleCheckbox" />
+            <span>
+              I hereby agree to the
+              <a href="#" id="termsCondtions">terms and conditions</a>
+            </span>
+          </div>
+
+          <button id="connectBtn" disabled>
+            <span>Connect to the internet</span>
+          </button>
+        </div>
+        <div class="terms-conditions" id="terms-conditions">
+          <button id="backButton">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M10 19L3 12M3 12L10 5M3 12L21 12"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <h1>Terms and condition</h1>
+          <h3>Introduction</h3>
+          <p>
+            Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
+            qui esse pariatur duis deserunt mollit dolore cillum minim tempor
+            enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
+            voluptate aute id deserunt nisi. Aliqua id fugiat nostrud irure ex
+            duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt
+            mollit dolore cillum minim tempor enim. Elit aute irure tempor
+            cupidatat incididunt sint deserunt ut voluptate aute id deserunt
+            nisi. Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+            Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+            tempor enim. Elit aute irure tempor cupidatat incididunt sint
+            deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
+            nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur
+            duis deserunt mollit dolore cillum minim tempor enim. Elit aute
+            irure tempor cupidatat incididunt sint deserunt ut voluptate aute id
+            deserunt nisi.
+          </p>
+          <h3>Introduction</h3>
+          <p>
+            Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
+            qui esse pariatur duis deserunt mollit dolore cillum minim tempor
+            enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
+            voluptate aute id deserunt nisi. Aliqua id fugiat nostrud irure ex
+            duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt
+            mollit dolore cillum minim tempor enim. Elit aute irure tempor
+            cupidatat incididunt sint deserunt ut voluptate aute id deserunt
+            nisi. Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+            Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+            tempor enim. Elit aute irure tempor cupidatat incididunt sint
+            deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
+            nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur
+            duis deserunt mollit dolore cillum minim tempor enim. Elit aute
+            irure tempor cupidatat incididunt sint deserunt ut voluptate aute id
+            deserunt nisi.
+          </p>
+          <h3>Introduction</h3>
+          <p>
+            Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
+            qui esse pariatur duis deserunt mollit dolore cillum minim tempor
+            enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
+            voluptate aute id deserunt nisi. Aliqua id fugiat nostrud irure ex
+            duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt
+            mollit dolore cillum minim tempor enim. Elit aute irure tempor
+            cupidatat incididunt sint deserunt ut voluptate aute id deserunt
+            nisi. Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+            Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+            tempor enim. Elit aute irure tempor cupidatat incididunt sint
+            deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
+            nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur
+            duis deserunt mollit dolore cillum minim tempor enim. Elit aute
+            irure tempor cupidatat incididunt sint deserunt ut voluptate aute id
+            deserunt nisi.
+          </p>
+          <h3>Introduction</h3>
+          <p>
+            Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt
+            qui esse pariatur duis deserunt mollit dolore cillum minim tempor
+            enim. Elit aute irure tempor cupidatat incididunt sint deserunt ut
+            voluptate aute id deserunt nisi. Aliqua id fugiat nostrud irure ex
+            duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt
+            mollit dolore cillum minim tempor enim. Elit aute irure tempor
+            cupidatat incididunt sint deserunt ut voluptate aute id deserunt
+            nisi. Aliqua id fugiat nostrud irure ex duis ea quis id quis ad et.
+            Sunt qui esse pariatur duis deserunt mollit dolore cillum minim
+            tempor enim. Elit aute irure tempor cupidatat incididunt sint
+            deserunt ut voluptate aute id deserunt nisi. Aliqua id fugiat
+            nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur
+            duis deserunt mollit dolore cillum minim tempor enim. Elit aute
+            irure tempor cupidatat incididunt sint deserunt ut voluptate aute id
+            deserunt nisi.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/assets/js/custom.js"></script>
+
     <script src="assets/js/main.js"></script>
   </body>
 </html>
