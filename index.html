@@ -2,14 +2,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdNet Zone</title>
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
     <link
       rel="stylesheet"
       type="text/css"
       href="assets/fonts/Inter/fonts.css"
     />
-    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/fonts/ClashDisplay/css/clash-display.css"
+    />
   </head>
   <body>
     <!-- <button id="showModal" style="position: absolute; z-index: 5">
@@ -288,6 +293,38 @@
         <!-- <div
           style="position: absolute; top: 0; bottom: 0; left: 0; right: 0"
         ></div> -->
+        <div id="header-container">
+          <span class="header-title">Secured by Fundamentals</span>
+          <button id="skipBtn" disabled>
+            <span>
+              Skip ad
+              <span id="countdownWrapper"
+                >(<span id="countdown">5</span>)
+              </span>
+              <span id="skipIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <g clip-path="url(#clip0_422_336)">
+                    <path
+                      d="M4 12L9.66667 8L4 4V12ZM10.6667 4V12H12V4H10.6667Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_422_336">
+                      <rect width="16" height="16" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+            </span>
+          </button>
+        </div>
         <div id="ad-container">
           <div id="ad-info">
             <div class="ad-info-header">

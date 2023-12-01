@@ -5,6 +5,10 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 16px;
+}
+svg {
+  vertical-align: middle;
 }
 
 #preloader {
@@ -18,7 +22,6 @@
 }
 body {
   font-family: Inter;
-  font-size: 16px;
   background: #000000;
   height: 100vh;
   box-sizing: border-box;
@@ -74,6 +77,37 @@ button {
     transform: scale(2);
     transition: transform 0.3s ease-in-out;
   }
+}
+#header-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 16px;
+  padding: 0 24px;
+  color: #fff;
+}
+.header-title {
+  color: #878787;
+  font-family: Clash Grotesk;
+  font-size: 10px;
+  font-weight: 500;
+}
+#skipBtn {
+  padding: 8px 24px;
+  color: #fff;
+  border-top: 1px solid #363636;
+  border-bottom: 1px solid #363636;
+  border-left: 1px solid #363636;
+  background: #212020;
+  &:disabled {
+    opacity: 0.32;
+  }
+}
+#skipIcon {
+  display: none;
 }
 #ad-container {
   position: absolute;
@@ -188,6 +222,7 @@ button {
   text-align: center;
   font-size: 14px;
   line-height: 21px;
+  margin-bottom: 32px;
 }
 #connectBtn {
   display: block;
@@ -227,12 +262,23 @@ button {
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @include small-devices {
+    max-height: 100%;
+  }
 }
 .terms-conditions-link {
   text-align: center;
+  margin-bottom: 24px;
   a {
     text-decoration: underline;
     color: #fff;
     font-weight: 500;
+  }
+}
+#backButton {
+  margin-bottom: 16px;
+  @include small-devices {
+    margin-top: 32px;
   }
 }

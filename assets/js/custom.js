@@ -1,75 +1,107 @@
+function startCountDown() {}
+
 $(document).ready(function () {
+  const $overlayAndModal = $(
+    '#overlay, #modal, #overlay-dark, #intro-container'
+  );
+
   // Make an AJAX call to a placeholder API
   $.ajax({
-    url: 'https://jsonplaceholder.typicode.com/todos/1', // Replace with the actual URL you want to call
+    url: 'https://jsonplaceholder.typicode.com/todos/1',
     type: 'GET',
     success: function (response) {
-      // This is where you handle the response from the API
       console.log('Data fetched:', response);
-      setTimeout(() => {
-        $('#preloader').fadeOut();
-      }, 0);
-
-      // Show modal and related overlays
-      $('#overlay, #modal, #overlay-dark, #intro-container').fadeIn();
+      $('#preloader').fadeOut();
+      $overlayAndModal.fadeIn();
     },
     error: function () {
-      // Handle errors here
       console.error('An error occurred while fetching data');
     },
   });
-  // Show modal
-  $('#overlay, #modal, #overlay-dark, #intro-container').fadeIn();
-  $('#showModal').click(function () {
-    // $('#overlay').show();
-    // $('#modal').show();
-  });
 
-  // Close modal
-  $('#closeModal').click(function () {
+  // Event handlers
+  $('#showModal').on('click', function () {});
+
+  $('#closeModal').on('click', function () {
     $('#overlay, #modal').fadeOut();
-    // $('#overlay').hide();
-    // $('#modal').hide();
-  });
-  // When the checkbox state changes
-  $('#toggleCheckbox').change(function () {
-    // If the checkbox is checked, enable the button; otherwise, disable it
-    if ($(this).is(':checked')) {
-      $('#connectBtn').prop('disabled', false);
-    } else {
-      $('#connectBtn').prop('disabled', true);
-    }
   });
 
-  // When terms and conditions link is clicked
-  $('#termsCondtions').click(function (e) {
+  $('#toggleCheckbox').on('change', function () {
+    $('#connectBtn').prop('disabled', !$(this).is(':checked'));
+  });
+
+  $('#termsCondtions').on('click', function (e) {
     e.preventDefault();
     $('#intro-container').fadeOut();
-    setTimeout(() => {
+    setTimeout(function () {
       $('#terms-conditions').fadeIn();
     }, 300);
   });
-  // When terms and conditions link is clicked
-  $('#backButton').click(function (e) {
+
+  $('#backButton').on('click', function () {
     $('#terms-conditions').fadeOut();
-    setTimeout(() => {
+    setTimeout(function () {
       $('#intro-container').fadeIn();
     }, 300);
   });
-  $('#connectBtn').click(function () {
-    console.log('triggered');
+
+  $('#connectBtn').on('click', function () {
+    // Disable #connectBtn
+    $(this).prop('disabled', true);
+    // Define countdown variables outside the toggle logic for scope accessibility
+    let countdownValue;
+    let countdownInterval;
+
+    // Function to reset the countdown
+    function resetCountdown() {
+      if (countdownInterval) {
+        clearInterval(countdownInterval); // Clear existing interval if any
+      }
+      countdownValue = 10; // Assuming you want a 10-second countdown
+      countdownElement.text(countdownValue); // Update countdown display
+
+      // Start a new countdown
+      countdownInterval = setInterval(function () {
+        countdownValue -= 1;
+        countdownElement.text(countdownValue);
+
+        if (countdownValue <= 0) {
+          clearInterval(countdownInterval);
+          $('#skipBtn').prop('disabled', false);
+          $('#countdownWrapper').hide();
+          $('#skipIcon').fadeIn();
+        }
+      }, 1000); // Update every 1 second
+    }
+
+    const countdownElement = $('#countdown');
+
+    // Check if the modal is being displayed by checking visibility
+    if ($overlayAndModal.is(':visible')) {
+      // Modal already displayed, reset countdown
+      resetCountdown();
+    } else {
+      // Modal not displayed, initiate countdown
+      resetCountdown(); // This function starts countdown from the beginning
+    }
+
     $.ajax({
-      url: 'https://jsonplaceholder.typicode.com/todos', // Replace with the actual URL you want to call
+      url: 'https://jsonplaceholder.typicode.com/todos',
       type: 'GET',
       success: function (response) {
-        // This is where you handle the response from the API
         console.log('Data fetched:', response);
         $('#overlay, #modal, #overlay-dark').fadeOut();
+        // Enable #connectBtn
+        $('#connectBtn').prop('disabled', false);
       },
       error: function () {
-        // Handle errors here
         console.error('An error occurred while fetching data');
+        // Enable #connectBtn even if there is an error
+        $('#connectBtn').prop('disabled', false);
       },
     });
+  });
+  $('#skipBtn').on('click', function () {
+    console.log('skip');
   });
 });
