@@ -291,25 +291,9 @@
               type="video/mp4"
             />
           </video> -->
-          <div style="display: flex; justify-content: center">
+          <div style="display: flex; justify-content: center; height: 100%">
             <div id="slider" class="swipe">
-              <div class="swipe-wrap">
-                <div>
-                  <img src="/assets/img/spacer.png" />
-                </div>
-                <div>
-                  <img src="/assets/img/spacer.png" />
-                </div>
-                <div>
-                  <img src="/assets/img/spacer.png" />
-                </div>
-                <div>
-                  <img src="/assets/img/spacer.png" />
-                </div>
-                <div>
-                  <img src="/assets/img/spacer.png" />
-                </div>
-              </div>
+              <div class="swipe-wrap" id="ad-images"></div>
               <span class="nav prev"
                 ><svg
                   width="31"
@@ -561,7 +545,11 @@
         <div id="ad-container">
           <div id="ad-info">
             <div class="ad-info-header">
-              <img src="assets/img/icon.svg" alt="business icon" />
+              <img
+                id="sponsor-logo"
+                src="assets/img/icon.svg"
+                alt="business icon"
+              />
               <h1 id="ad-company">MTN Nigeria</h1>
             </div>
             <p id="ad-discription">

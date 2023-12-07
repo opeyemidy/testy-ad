@@ -132,6 +132,10 @@ button {
   gap: 4px;
   align-items: center; }
 
+#sponsor-logo {
+  width: 16px;
+  height: 16px; }
+
 #ad-link {
   background: #ffc800;
   padding: 10px 16px;
@@ -268,6 +272,10 @@ button {
   position: relative;
   max-width: 390px;
   width: 100%; }
+  .swipe * {
+    height: 100%; }
+  .swipe .nav {
+    height: auto; }
 
 .swipe-wrap {
   overflow: hidden;
