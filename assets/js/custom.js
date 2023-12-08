@@ -8,36 +8,30 @@ $(document).ready(function () {
   let video;
   let data;
   getAd();
-  // Event handlers
-  $('#showModal').on('click', function () {});
 
-  $('#closeModal').on('click', function () {
-    $('#overlay, #modal').fadeOut();
-  });
+  $('#toggleCheckbox').on('change', onToggleCheckbox);
 
-  $('#toggleCheckbox').on('change', function () {
+  $('#termsCondtions').on('click', viewTandC);
+
+  $('#backButton').on('click', onCloseTandC);
+
+  $('#connectBtn').on('click', onConnect);
+  $('#skipBtn').on('click', onSkipAd);
+  $('#ad-link').on('click', onVisitAdLink);
+
+  function onToggleCheckbox() {
     $('#connectBtn').prop('disabled', !$(this).is(':checked'));
-  });
+  }
 
-  $('#termsCondtions').on('click', function (e) {
+  function viewTandC(e) {
     e.preventDefault();
     $('#intro-container').fadeOut();
     setTimeout(function () {
       $('#terms-conditions').fadeIn();
     }, 300);
-  });
+  }
 
-  $('#backButton').on('click', function () {
-    $('#terms-conditions').fadeOut();
-    setTimeout(function () {
-      $('#intro-container').fadeIn();
-    }, 300);
-  });
-
-  $('#connectBtn').on('click', function () {
-    // Disable #connectBtn
-    $(this).prop('disabled', true);
-    // Make an AJAX call to a placeholder API
+  function onConnect() {
     $overlayAndModal.fadeOut();
     setTimeout(() => {
       if (video) {
@@ -47,8 +41,9 @@ $(document).ready(function () {
       }
       startCountDown();
     }, 300);
-  });
-  $('#skipBtn').on('click', function () {
+  }
+
+  function onSkipAd() {
     isSkip = true;
     $(this).prop('disabled', true);
     sendPutRequest(
@@ -63,7 +58,29 @@ $(document).ready(function () {
         $(this).prop('disabled', false);
       }
     );
-  });
+  }
+
+  function onVisitAdLink(event) {
+    // Prevent default action of the event
+    event.preventDefault();
+    sendPutRequest(
+      {
+        action_id: data.device.action_id,
+        click: true,
+      },
+      () => {
+        window.location.href = data.ad.ad_cta_redirect;
+      }
+    );
+  }
+
+  function onCloseTandC() {
+    $('#terms-conditions').fadeOut();
+    setTimeout(function () {
+      $('#intro-container').fadeIn();
+    }, 300);
+  }
+
   function onVideoWatchComplete() {
     if (isSkip) return;
     // First request data
@@ -86,7 +103,7 @@ $(document).ready(function () {
     );
   }
 
-  async function renderAd() {
+  function renderAd() {
     if (data.ad.ad_content.type === 'video') {
       const videoSrc = data.ad.ad_content.content[0];
       const videoExtension = videoSrc.split('.').pop();
@@ -103,26 +120,10 @@ $(document).ready(function () {
       $('#ad').html(videoHTML);
       $('#progress').show();
       video = document.getElementById('background-video');
-      var playButton = document.getElementById('play_button');
-      var progressBar = document.getElementById('progress-bar');
-      var progressContainer = document.getElementById('progress');
-      // Event listener for the play/pause button
-      video.addEventListener('click', function () {
-        if (video.paused == true) {
-          // Play the video
-          // video.play();
-          // Update the button text to 'Pause'
-          // playButton.innerHTML = 'Pause';
-        } else {
-          // Pause the video
-          // video.pause();
-          // Update the button text to 'Play'
-          // playButton.innerHTML = 'Play';
-        }
-      });
+      const progressBar = document.getElementById('progress-bar');
       $('#background-video').on('ended', onVideoWatchComplete);
       video.addEventListener('timeupdate', function () {
-        var percentage = (video.currentTime / video.duration) * 100;
+        const percentage = (video.currentTime / video.duration) * 100;
         progressBar.style.width = percentage + '%';
       });
     } else {
@@ -172,21 +173,19 @@ $(document).ready(function () {
 
     $('#ad-link-icon').html(adlinkIcon);
   }
+
   function startCountDown() {
-    // Disable #connectBtn
-    // $('this').prop('disabled', true);
-    // Define countdown variables outside the toggle logic for scope accessibility
     let countdownValue;
     let countdownInterval;
 
-    // Function to reset the countdown
     function resetCountdown() {
       const countdownElement = $('#countdown');
-      if (countdownInterval) {
+      if (typeof countdownInterval !== 'undefined') {
         clearInterval(countdownInterval); // Clear existing interval if any
       }
-      countdownValue = data.ad_entity.meta.skip_timeout_in_sec; // Assuming you want a 10-second countdown
-      countdownElement.text(countdownValue); // Update countdown display
+
+      countdownValue = data.ad_entity.meta.skip_timeout_in_sec;
+      countdownElement.text(countdownValue);
 
       // Start a new countdown
       countdownInterval = setInterval(function () {
@@ -197,7 +196,7 @@ $(document).ready(function () {
           sendPutRequest(
             {
               action_id: data.device.action_id,
-              click: true,
+              view: true,
             },
             () => {}
           );
@@ -208,15 +207,7 @@ $(document).ready(function () {
         }
       }, 1000); // Update every 1 second
     }
-
-    // Check if the modal is being displayed by checking visibility
-    if ($overlayAndModal.is(':visible')) {
-      // Modal already displayed, reset countdown
-      resetCountdown();
-    } else {
-      // Modal not displayed, initiate countdown
-      resetCountdown(); // This function starts countdown from the beginning
-    }
+    resetCountdown();
   }
 
   function getAd() {
@@ -244,6 +235,7 @@ $(document).ready(function () {
       console.log(error);
     }
   }
+
   function initializeImageSlide() {
     Slider = $('#slider')
       .Swipe({
@@ -255,6 +247,7 @@ $(document).ready(function () {
     $('.next').on('click', Slider.next);
     $('.prev').on('click', Slider.prev);
   }
+
   function sendPutRequest(dataToSend, onSuccess, onError) {
     $.ajax({
       url: actionUrl,
@@ -265,23 +258,7 @@ $(document).ready(function () {
     });
   }
 
-  // Handler for errors
   function handleError() {
     console.error('An error occurred while fetching data');
   }
-
-  $('#ad-link').on('click', function (event) {
-    // Prevent default action of the event
-    event.preventDefault();
-    sendPutRequest(
-      {
-        action_id: data.device.action_id,
-        click: true,
-      },
-      () => {
-        window.location.href = data.ad.ad_cta_redirect;
-      }
-    );
-    // Additional logic can be placed here, if needed.
-  });
 });
