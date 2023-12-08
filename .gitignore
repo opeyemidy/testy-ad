@@ -2,3 +2,8 @@
 package.json
 package-lock.json
 scss/
+.babelrc
+.eslintrc.json
+sample.json
+.vscode
+cmd
