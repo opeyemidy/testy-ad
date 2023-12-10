@@ -48,6 +48,9 @@ button {
   height: 100%;
   width: 100%;
   object-fit: cover; }
+  @media (max-width: 450px) {
+    #background-video {
+      object-fit: contain; } }
 
 #progress {
   margin-top: 24px;
